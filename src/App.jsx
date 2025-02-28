@@ -28,7 +28,7 @@ const App = () => {
   };
 
   return (
-    <div className="p-10 font-mono ">
+    <div className="w-full max-w-xl mt-10 flex flex-col mx-auto px-4 sm:px-6 lg:px-8 font-mono">
       <Heading />
       <CreateTask addTask={addTask} />
       <TaskList doneTask={doneTask} removeTask={removeTask} tasks={tasks} />
