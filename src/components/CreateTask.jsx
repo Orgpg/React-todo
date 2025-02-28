@@ -22,8 +22,8 @@ const CreateTask = ({ addTask }) => {
     <div className="flex mb-2">
       <input
         type="text"
-        placeholder="Add Task"
-        className="flex-grow border p-2 border-black rounded-l-md"
+        placeholder="Enter Your Task ....."
+        className="flex-grow border text-black p-2 border-black rounded-l-md"
         value={job}
         onChange={haldlerOnChange}
       />
