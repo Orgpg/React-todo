@@ -12,7 +12,7 @@ const Task = ({ job: { id, task, isDone }, removeTask, doneTask }) => {
   };
 
   return (
-    <div className="flex justify-between items-center  border border-black rounded-lg p-2 mb-3">
+    <div className="flex justify-between items-center border border-white rounded-lg p-2 mb-3">
       <div className="flex items-center gap-5">
         <input
           type="checkbox"
