@@ -1,13 +1,20 @@
 import React, { useState } from "react";
+import Task from "./Task";
 
-const CreateTask = ({addTask}) => {
+const CreateTask = ({ addTask }) => {
   const [job, setJob] = useState("");
   const haldlerOnChange = (e) => {
     setJob(e.target.value);
   };
 
   const haldleAddTaskBtn = () => {
-    addTask(job);
+    const newTask = {
+      id: Date.now(),
+      task: job,
+      isDone: false,
+    };
+
+    addTask(newTask);
     setJob("");
   };
 
@@ -20,7 +27,10 @@ const CreateTask = ({addTask}) => {
         value={job}
         onChange={haldlerOnChange}
       />
-      <button onClick={haldleAddTaskBtn} className="bg-blue-500 text-white rounded-r-md px-3 py-3">
+      <button
+        onClick={haldleAddTaskBtn}
+        className="bg-blue-500 text-white rounded-r-md px-3 py-3"
+      >
         Add Task
       </button>
     </div>

@@ -6,26 +6,32 @@ import TaskList from "./components/TaskList";
 
 const App = () => {
   let [tasks, setTasks] = useState([
-    "Learn HTML",
-    "Learn CSS",
-    "Learn JavaScript",
-    "Try React",
-    "Work on a project",
+    { id: 1, task: "Learn HTML", isDone: true },
+    { id: 2, task: "Learn CSS", isDone: false },
+    { id: 3, task: "Learn JavaScript", isDone: true },
+    { id: 4, task: "Try React", isDone: false },
+    { id: 5, task: "Work on a project", isDone: false },
   ]);
 
   const addTask = (newTask) => {
     setTasks([...tasks, newTask]);
   };
 
-  const removeTask = (taskToRemove) => {
-    setTasks(tasks.filter((task) => task !== taskToRemove));
+  const removeTask = (id) => {
+    setTasks(tasks.filter((task) => task.id !== id));
+  };
+
+  const doneTask = (id) => {
+    setTasks(
+      tasks.map((el) => (el.id === id ? { ...el, isDone: !el.isDone } : el))
+    );
   };
 
   return (
     <div className="p-10 font-mono ">
       <Heading />
       <CreateTask addTask={addTask} />
-      <TaskList removeTask={removeTask} tasks={tasks} />
+      <TaskList doneTask={doneTask} removeTask={removeTask} tasks={tasks} />
     </div>
   );
 };
